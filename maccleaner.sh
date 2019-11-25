@@ -1,7 +1,8 @@
 #!/bin/bash
 # Simple script to create random mac address, at random sec intervals to 
 # prevent MAC change pattern/location analysis/identification/tracking;
-# MAC address gets reset to original on disconnect/reset of 
+# MAC addresses are mapped out all over the world to track ppl;
+# MAC address w/reset to original on disconnect/reset of 
 # wifi; this script ensures MAC continues changing after such incident.
 # requires macchanger; Contact me: righttoprivacy@tutanota.com
 
