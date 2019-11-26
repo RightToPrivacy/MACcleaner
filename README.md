@@ -1,19 +1,21 @@
-# MACcleaner
+# MACcleaner/ghostmac
 README:
 
-Why ghostmac/maccleaner: MAC address tracking is one of the most
-pervasive forms of surveillance abuse out there. Passive sniffers
-are constantly tracking us as we pass by them or access points. Even
-if you don't connect. This is a solution changing your mac at constantly
-changing times/addresses. To "ghost" your hardware address & drop the
-tracking.
+Why ghostmac/maccleaner?
 
-Even dept stores will track your MAC, linking it to your identity as
+MAC address tracking is one of the most pervasive/constant forms 
+of surveillance abuse out there. Passive sniffers are constantly 
+gobbling up our mac address broadcasts, tracking us as we pass 
+by them, along with access points. This occurs even if you do not 
+connect. This is a solution changing your mac at constantly changing 
+times/addresses. To "ghost" your hardware address & drop the tracking.
+
+Even dept stores track your MAC, linking it to your identity/broadcast, as
 you bring your items to a cash register. MAC addresses are the permanent 
 hardware address tied to your computer WIFI/Ethernet card etc. In fact,
-these are one of the biggest ties to your identity. This small bash script 
-changes your wifi card to a random MAC address every few minutes at 
-random intervals. 
+these are one of the biggest ties to your identity/movements. This small 
+bash script changes your wifi card to a random MAC address every few minutes at 
+random time intervals. 
 
 Drones also collect MAC addresses to track identities, violating 
 UN Declaration of Human Rights: #12 is privacy. Privacy is a basic
@@ -70,5 +72,5 @@ abuse MAC address tracking.
 
 If you want to contact me, email: jme0719a@harford.edu
 
-Thanks Alvaro Lopez Ortega <alvaro@alobbs.com> for writing macchanger which
-this script depends on, making life easier, saving me code.
+Thanks Alvaro Lopez Ortega for writing macchanger which
+this script uses, making life easier & saving me code.
