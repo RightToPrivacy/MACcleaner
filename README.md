@@ -59,7 +59,7 @@ Then "Create Application launcher".
 
 Select Application and change it to "Application in terminal." 
 
-Command for the launcher: `sudo maccleaner` (or ghostmac, whatever
+Command for the launcher: `menuexecg "sudo maccleaner"` (or ghostmac, whatever
 you name it; also make sure you change from "Application" to 
 "Application in Terminal")
 
@@ -70,7 +70,7 @@ you want a status window to keep an eye on MAC address history/timing.
 This script was created with ethical intentions to fight against surveillance
 abuse MAC address tracking. 
 
-If you want to contact me, email: jme0719a@harford.edu
+If you want to contact/have ideas/questions email: jme0719a@harford.edu
 
-Thanks Alvaro Lopez Ortega for writing macchanger which
-this script uses, making life easier & saving me code.
+Thanks go out to Alvaro Lopez Ortega for writing macchanger which
+made this process easier/quicker.
