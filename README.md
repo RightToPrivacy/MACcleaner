@@ -21,10 +21,13 @@ You can adjust the lowest -> highest time differences in the script variables.
 Using random intervals ensures you are not creating a pattern on the 
 networks. 
 
-Also a common problem with macchanger was MAC address reset to permanent
+Also a common issue just running macchanger is MAC address resets to permanent
 (original/identity) MAC address upon disconnect from a network/wifi driver
 issues. By running this script you add many more mac addresses to the mix
-& ensure you are a needle in a haystack.
+& giving a sort of needle in a haystack for those not hard drive installs.
 
 This script was created with ethical intentions. If you want to contact me,
 email: righttoprivacy@tutanota.com
+
+Thanks to Alvaro Lopez Ortega <alvaro@alobbs.com> for writing macchanger which
+this script depends on, making life easier.
