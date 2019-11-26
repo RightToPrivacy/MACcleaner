@@ -1,10 +1,10 @@
 #!/bin/bash
-# Simple script to create random mac address, at random sec intervals to 
-# prevent MAC change pattern/location analysis/identification/tracking;
-# MAC addresses are mapped out all over the world to track ppl;
-# MAC address w/reset to original on disconnect/reset of 
+# Simple script changes MAC addy at random sec intervals to 
+# thwart MAC pattern/location analysis/identification/tracking;
+# MAC addresses are mapped out w/drones to track ppl;
+# MAC addresses tend to reset to original trackable MAC on disconnect/reset of 
 # wifi; this script ensures MAC continues changing after such incident.
-# requires macchanger; Contact me: righttoprivacy@tutanota.com
+# requires macchanger; Contact righttoprivacy@tutanota.com
 
 mac=wlan0 	# your wifi card goes here
 while :
