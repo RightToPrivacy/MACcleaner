@@ -36,7 +36,7 @@ if [ "$setting" == "s" ];then
 		do
 			ifconfig $device down;macchanger -m $mac $device;ifconfig $device up > /dev/null 2>&1 &
 			echo "Perfect!"
-			sleep 600
+			sleep $rando
 		done
 
 fi 
