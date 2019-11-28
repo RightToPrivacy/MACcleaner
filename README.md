@@ -1,6 +1,8 @@
 # MACcleaner/ghostmac
 README:
 
+concept by righttoprivacy@tutanota.com; 
+
 Why ghostmac/maccleaner?
 
 MAC address tracking is one of the most pervasive/constant forms 
@@ -70,7 +72,7 @@ you want a status window to keep an eye on MAC address history/timing.
 This script was created with ethical intentions to fight against surveillance
 abuse MAC address tracking. 
 
-If you want to contact/have ideas/questions email: jme0719a@harford.edu
+If you want to contact/have ideas/questions email: righttoprivacy@tutanota.com
 
-Thanks go out to Alvaro Lopez Ortega for writing macchanger which
+shout out to Alvaro Lopez Ortega for writing macchanger which
 made this process easier/quicker.
