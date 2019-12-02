@@ -4,7 +4,9 @@ README:
 concept by righttoprivacy@tutanota.com; 
 
 REQUIREMENTS:
-Linux + bash
+bash.
+Runs on any Linux distribution. 
+Requires the OUI.final file. Make sure it is in same directory or put full path to file.
 
 INSTRUCTIONS:
 chmod +x maccleaner
@@ -13,6 +15,8 @@ chmod +x maccleaner
 OR
 
 follow instructions at bottom of this README for how to add a simple button for easy click access.
+
+For further anonymization try it with AnonSurf (routes all traffic through Tor/prevents dns leaks)
 
 Why maccleaner?
 
