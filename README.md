@@ -3,14 +3,26 @@ README:
 
 concept by righttoprivacy@tutanota.com; 
 
-Why ghostmac/maccleaner?
+REQUIREMENTS:
+Linux + bash
+
+INSTRUCTIONS:
+chmod +x maccleaner
+./maccleaner
+
+OR
+
+follow instructions at bottom of this README for how to add a simple button for easy click access.
+
+Why maccleaner?
 
 MAC address tracking is one of the most pervasive/constant forms 
 of surveillance abuse out there. Passive sniffers are constantly 
 gobbling up our mac address broadcasts, tracking us as we pass 
-by them, along with access points. This occurs even if you do not 
-connect. This is a solution changing your mac at constantly changing 
-times/addresses. To "ghost" your hardware address & drop the tracking.
+by them, along with access points. This occurs even if you just have
+wifi on. Even if you do not connect. This is a solution with an
+anonymous mode to change your mac at constantly changing randomized
+times/addresses. To "ghost" your hardware address & drop the trackers.
 
 Even dept stores track your MAC, linking it to your identity/broadcast, as
 you bring your items to a cash register. MAC addresses are the permanent 
@@ -32,7 +44,7 @@ You can adjust the lowest -> highest time differences in the script variables.
 Using random intervals ensures you are not creating a pattern. All tracking
 is based on predicable patterns.
 
-Also solves a common issue w/macchanger where MAC address resets to permanent
+Also solves a common issue in mac address changing where MAC address resets to permanent
 (original/identity) MAC address upon disconnect from a network/wifi driver
 issues. By running this script you shorten the time between mac changes. I ran
 KISMET for 6 hours straight to test it. Not a single real MAC address leak. Also
@@ -50,7 +62,6 @@ Save the script to a file in text editor (or download from github).
 Open terminal.
 
 `chmod +x maccleaner`. 
-(or name ghostmac, kind of identifies purpose in name). 
 
 Move to command path directory:
 'mv scriptname /usr/bin' (this puts it in path for command execution)
@@ -61,7 +72,7 @@ Then "Create Application launcher".
 
 Select Application and change it to "Application in terminal." 
 
-Command for the launcher: `menuexecg "sudo maccleaner"` (or ghostmac, whatever
+Command for the launcher: "sudo maccleaner" (or ghostmac, whatever
 you name it; also make sure you change from "Application" to 
 "Application in Terminal")
 
@@ -69,10 +80,6 @@ Now just clicking the panel button will launch a terminal displaying status
 of MAC changes including seconds from last MAC change (in case
 you want a status window to keep an eye on MAC address history/timing.
 
-This script was created with ethical intentions to fight against surveillance
-abuse MAC address tracking. 
+This script was created with ethical intentions to fight predatory MAC address tracking.
 
 If you want to contact/have ideas/questions email: righttoprivacy@tutanota.com
-
-shout out to Alvaro Lopez Ortega for writing macchanger which
-made this process easier/quicker.
