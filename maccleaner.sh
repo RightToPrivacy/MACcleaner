@@ -1,41 +1,53 @@
 #!/bin/bash
-# wifi cards commonly reset depending on task/driver
-# maccleaner sets MAC address on a timed basis to prevent broadcast leaks
+# wifi cards commonly reset to perm address depending on task/driver
+# this is a fix and also further anonymizing your mac location
+# privacy/random mode (r) sets continually changing random addresses at continually changing random times
+# 'ghosting' your mac/location
+# should work on most if not all Linux systems
 # questions/concept: righttoprivacy@tutanota.com
-# requires macchanger
 
-hightime=1000  # highest number of seconds between next random MAC change time
-lowtime=1   # lowest number of seconds between next random MAC change time
+hightime=400  # highest number for timing randomizer (higher the number longer potential change
+lowtime=40   # lowest number (lower the number, lower potential time changed)
 
-echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-echo "|maccleaner:Prevents MAC address reset leaks problem|"
-echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-echo "promotes privacy with randomized mac change timing setting"
-echo "press 'r wlan0' to enter random mode (times/addresses)..."
-echo "press 's wlan0' to create permanent MAC address setting mode..."
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+/bin/echo -e "|\e[1;31mmaccleaner:\e[0m \e[1;37m mac anonymization time/address randomizer\e[0m|"
+echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+echo -e "\e[0;36mcontact: righttoprivacy@tutanota.com\e[0m"
+echo "mac privacy with randomized (r) mac change timing setting"
+echo -e "press '\e[0;36mr wlan0\e[0m' to enter random mode (times/addresses)..."
+echo -e "press '\e[0;36ms wlan0 MAC\e[0m' to enter MAC address into permanent setting mode..."
 echo "setting device:"
-read setting device
-
+read setting device mac
 if [ "$setting" == "r" ];then
 
-	while :
-	do
-		rando=$((RANDOM%$hightime+$lowtime))
-		echo 'ghosting MAC: random times at random addresses (privacy mode):'
-		ifconfig $device down;macchanger -r $device;ifconfig $device up
-		echo 'MAC changing in:' $rando'sec'
-		sleep $rando
-	done
+		while :
+		do
+			hexchar="ABCDEF0123456789"
+			beg=$(shuf -n 1 OUI.final)
+			#beg=$( for i in {1..6} ; do echo -n ${hexchar:$(( $RANDOM % 16 )):1} ; done | sed -e 's/\(..\)/:\1/g' )
+			end=$( for i in {1..6} ; do echo -n ${hexchar:$(( $RANDOM % 16 )):1} ; done | sed -e 's/\(..\)/:\1/g' )
+			mac=$beg$end
+			#macchar="${beg:1}"
+			#mac=$macchar$end
+			rando=$((RANDOM%$hightime+$lowtime))
+			echo 'ghosting MAC: random times at random addresses (privacy mode):'
+			echo -e "Changing MAC to: \e[1;31m$mac\e[0m"
+			ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
+
+			echo 'next change: random times, random addresses in:' $rando'sec'
+			sleep $rando
+		done
 fi
 
 
 if [ "$setting" == "s" ];then
-	echo "Set the address (and help prevent reset address leaks)"
-	echo "MAC:";read mac
+	echo "Sets address (prevents address reset leaks)"
 		while :
 		do
-			ifconfig $device down;macchanger -m $mac $device;ifconfig $device up > /dev/null 2>&1 &
-			echo "Perfect!"
+			rando=$((RANDOM%$hightime+$lowtime))
+			echo "MAC being reset to: \e[1;31m$mac\e[0m"
+			ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
+			echo 'ensuring MAC set to same address (preventing leaks) in: '$rando'sec'
 			sleep $rando
 		done
 
