@@ -53,6 +53,10 @@ KISMET for 6 hours straight to test it. Not a single real MAC address leak. Also
 adds many more mac addresses to the mix giving a sort of needle in a haystack 
 strategy & constantly moving address.
 
+Works great alongside Parrot OS's AnonSurf/Tor to route traffic, but nothing outside 
+this script is required for it to work (outside bash). This script (maccleaner)
+changes your device address & KISMET functions well while using it (for ethical
+purposes)
 
 -=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -85,3 +89,5 @@ you want a status window to keep an eye on MAC address history/timing.
 This script was created with ethical intentions to fight predatory MAC address tracking.
 
 If you want to contact/have ideas/questions email: righttoprivacy@tutanota.com
+
+
