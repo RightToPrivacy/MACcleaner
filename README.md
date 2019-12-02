@@ -16,7 +16,7 @@ OR
 
 follow instructions at bottom of this README for how to add a simple button for easy click access.
 
-For further anonymization try it with AnonSurf (routes all traffic through Tor/prevents dns leaks)
+I use it alongside AnonSurf (routes all traffic through Tor/prevents dns leaks)
 
 Why maccleaner?
 
