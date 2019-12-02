@@ -1,12 +1,33 @@
 # MACcleaner/ghostmac
 README:
 
-concept by righttoprivacy@tutanota.com; 
+MAC address tracking is the mother of all tracking. Even if you do 
+everything else right, Tor, VPN, etc, your MAC address is the weakest
+link in your anonymity. Drones are mapping out our movements by MAC 
+address, even if we never connect to wifi. Access points store our
+MAC addresses & router backdoors give away our MAC address to
+parties unknown. 
+
+This is why I wrote maccleaner: predatory
+MAC address tracking
+
+concept/code by righttoprivacy@tutanota.com; email me with any questions.
 
 REQUIREMENTS:
-bash.
-Runs on any Linux distribution. 
-Requires the OUI.final file. Make sure it is in same directory or put full path to file.
+
+1.) *** IMPORTANT *** : 
+put OUI.final file in home directory if running as
+a command. It selects one of thousands of random, MAC address OUI's 
+to generate/set valid mac addresses.
+
+2.) Must be run as root
+
+3.) bash.
+
+4.) Runs on any Linux distribution. 
+
+5.) Requires the OUI.final file. Make sure it is in same directory/home dir.
+(mentioning this twice because it is required!)
 
 INSTRUCTIONS:
 chmod +x maccleaner
@@ -14,7 +35,8 @@ chmod +x maccleaner
 
 OR
 
-follow instructions at bottom of this README for how to add a simple button for easy click access.
+follow instructions at bottom of this README for how to add command/simple 
+button for easy access.
 
 Why maccleaner?
 
