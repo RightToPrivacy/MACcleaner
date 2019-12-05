@@ -1,14 +1,12 @@
-# MACcleaner/ghostmac
+# MACcleaner
 README:
+Ideal for Passive Sniffing/Traveling Privacy Rights. Choose set 
 
-MAC address tracking is the mother of all tracking. Even if you do 
-everything else right, Tor, VPN, etc, your MAC address is the weakest
-link in your anonymity. Drones are mapping out our movements by MAC 
-address, even if we never connect to wifi. Access points store our
-MAC addresses & router backdoors give away our MAC address to
-parties unknown. 
+MAC address tracking is the mother of all tracking.
+Drones are mapping out our movements by MAC address, even if 
+we never connect to wifi. Access points store MAC addresses.
 
-This is why I wrote maccleaner: predatory
+This is why I wrote maccleaner: predatory data agreggator
 MAC address tracking
 
 concept/code by righttoprivacy@tutanota.com; email me with any questions.
