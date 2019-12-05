@@ -7,8 +7,8 @@
 # should work on most if not all Linux systems;
 # questions/concept: righttoprivacy@tutanota.com
 
-hightime=400  # highest number for timing randomizer (higher the number longer potential change
-lowtime=40   # lowest number (lower the number, lower potential time changed)
+hightime=1200  # highest number for timing randomizer (higher the number longer potential change
+lowtime=500   # lowest number (lower the number, lower potential time changed)
 
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 /bin/echo -e "|\e[1;31mmaccleaner:\e[0m \e[1;37m mac anonymization time/address randomizer\e[0m|"
