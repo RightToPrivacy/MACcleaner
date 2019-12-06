@@ -46,18 +46,20 @@ echo "README contains different reasons for setting selections;"
 sleep .5
 /bin/echo -e "----------------------------------------------------------"
 sleep 1
-/bin/echo -e "press '\e[0;36mr wlan0\e[0m' to enter randomized privacy mode: "
-/bin/echo -e "random times/random MAC addresses/generic device name change..."
+/bin/echo -e "press '\e[0;36mr wlan0\e[0m' to enter continually changing randomized high privacy mode: "
+/bin/echo -e "random times/random MAC addresses/generic hostname change..."
+echo ""
+/bin/echo -e "press '\e[0;36mi wlan0\e[0m' to enter single randomly generated iPhone (hostname/MAC) mimic mode"
 echo ""
 sleep 1
-/bin/echo -e "press '\e[0;36mc wlan0\e[0m' to enter changing cellphone device name/MAC mimic mode (default Apple)" 
+/bin/echo -e "press '\e[0;36mc wlan0\e[0m' to enter changing cellphone device name/MAC mimic mode (matching mac/hostname)" 
 echo ""
 sleep 1
 /bin/echo -e "press '\e[0;36ms wlan0 MAC\e[0m' to enter MAC address of your choice..."
 /bin/echo -e "(prevent mac leaks; retains same address..)"
 /bin/echo -e ""
 sleep 1
-/bin/echo -e "press '\e[0;36ma wlan0\e[0m' to generate a single random MAC address & keep it..."
+/bin/echo -e "press '\e[0;36ma wlan0\e[0m' to generate/set a single hostname/random MAC address & keep it..."
 /bin/echo -e "(prevents mac leaks; retains same address..)"
 /bin/echo -e "----------------------------------------------------------- \e[0m"
 sleep 1
@@ -66,7 +68,7 @@ read setting device mac
 echo ""
 if [ "$setting" == "r" ];then
 	hostnamectl set-hostname $r_mode_dev
-	/bin/echo -e "Your computer name is now \e[1;31m$r_mode_dev\e[0m"
+	/bin/echo -e "Your computer name is now \e[1;31m$r_mode_dev\e[0m on WiFi networks"
 		while :
 		do
 			hexchar="ABCDEF0123456789"
@@ -84,9 +86,26 @@ if [ "$setting" == "r" ];then
 		done
 fi
 
+if [ "$setting" == "i" ];then
+	hostnamectl set-hostname $c_mode_dev
+	/bin/echo -e "Your computer's name is now \e[1;31m$c_mode_dev\e[0m on WiFi networks"
+	hexchar="ABCDEF0123456789"
+	beg=$(shuf -n 1 OUI.apple)
+	end=$( for i in {1..6} ; do echo -n ${hexchar:$(( $RANDOM % 16 )):1} ; done | sed -e 's/\(..\)/:\1/g' )
+	mac=$beg$end
+	/bin/echo -e "Changing MAC to stay at: \e[1;31m$mac\e[0m"
+	/bin/echo -e "this setting mimics a single iPhone device both on the network & off (passively);"
+	/bin/echo -e "ensuring same address (preventing leaks) every: $reset_time sec"
+		while :
+		do
+			ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
+			sleep $reset_time 
+		done
+fi
+
 if [ "$setting" == "c" ];then
 	hostnamectl set-hostname $c_mode_dev
-	/bin/echo -e "Your computer name is now \e[1;31m$c_mode_dev\e[0m"
+	/bin/echo -e "Your computer name is now \e[1;31m$c_mode_dev\e[0m on WiFi networks"
 		while :
 		do
 			hexchar="ABCDEF0123456789"
@@ -106,14 +125,13 @@ fi
 
 if [ "$setting" == "s" ];then
 	hostnamectl set-hostname $r_mode_dev
-	/bin/echo -e "Your computer name (logged by LAN router) is now \e[1;31m$r_mode_dev\e[0m"
+	/bin/echo -e "Your new computer hostname (logged by WiFi/LAN router) is now \e[1;31m$r_mode_dev\e[0m"
+	echo "ensuring same MAC address (preventing leaks) in: $reset_time sec"
 		while :
 		do
 			rando=$((RANDOM%$hightime+$lowtime))
-			/bin/echo -e "MAC being reset to: \e[1;31m$mac\e[0m"
-			/bin/echo -e "Laptop name set to: \e[1;31m$hostname\e[0m"
+			/bin/echo -e "MAC being set to: \e[1;31m$mac\e[0m"
 			ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
-			echo 'ensuring same MAC address (preventing leaks) in: $reset_time'
 			sleep $reset_time
 		done
 
@@ -121,19 +139,17 @@ fi
 
 if [ "$setting" == "a" ];then
 	hostnamectl set-hostname $r_mode_dev
-	/bin/echo -e "Your computer's name will now be \e[1;31m$r_mode_dev\e[0m"
+	/bin/echo -e "Your new computer hostname (logged by WiFi/LAN router) is now \e[1;31m$r_mode_dev\e[0m"
 	hexchar="ABCDEF0123456789"
 	beg=$(shuf -n 1 OUI.final)
 	end=$( for i in {1..6} ; do echo -n ${hexchar:$(( $RANDOM % 16 )):1} ; done | sed -e 's/\(..\)/:\1/g' )
 	mac=$beg$end
-	/bin/echo -e "Changing MAC to: \e[1;31m$mac\e[0m"
+	/bin/echo -e "Changing MAC to stay as: \e[1;31m$mac\e[0m"
+	/bin/echo -e "this setting mimics a single random Desktop Computer on WiFi networks & off (passively);"
+	/bin/echo -e "ensuring same address (preventing leaks) every: $reset_time sec"
 		while :
 		do
 			ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
-			sleep 1
-			echo ""
-			echo 'ensuring same address (preventing leaks) in: $reset_time'
 			sleep $reset_time 
-			/bin/echo -e "Ensuring MAC to: \e[1;31m$mac\e[0m"
 		done
 fi
