@@ -1,75 +1,99 @@
+***If you use/edit/redistribute my concept/code make sure to credit:
+righttoprivacy@tutanota.com. E-mail me with questions.*** (11.25.2019)
+
 # MACcleaner
-README:
-Ideal for Passive Sniffing/Traveling Privacy Rights. Choose set 
 
-MAC address tracking is the mother of all tracking.
-Drones are mapping out our movements by MAC address, even if 
-we never connect to wifi. Access points store MAC addresses.
+(GPL) original concept/code 11.25.2019
 
-This is why I wrote maccleaner: predatory data agreggator
-MAC address tracking
+### README ###
 
-concept/code by righttoprivacy@tutanota.com; email me with any questions.
+***UPDATE: Now including hostname randomization***
+[ hostnames can be equally unique; Your comp hostname is logged 
+at every LAN/Network you connect to ]
 
-REQUIREMENTS:
+[ Ideal for Privacy/Human Rights ]
 
-1.) *** IMPORTANT *** : 
-put OUI.final file in home directory if running as
-a command. It selects one of thousands of random, MAC address OUI's 
-to generate/set valid mac addresses.
+MAC address tracking is the basis for modern non-GPS movement tracking.
+Think of your MAC address as the publicly broadcasting fingerprint to your 
+hardware device. It doesn't change & it broadcasts your location-- whether 
+you ever connect to a wifi network or not.
 
-2.) Must be run as root
+This can further be correlated with facial recognition, 
+& even your name if you give it to a tracking dept store.
 
-3.) bash.
+Drones map our movements by MAC address, even if 
+we never connect to wifi. Access points store your MAC/hostname addresses.
 
-4.) Runs on any Linux distribution. 
+[ This is why I wrote maccleaner: predatory address tracking. ]
 
-5.) Requires the OUI.final file. Make sure it is in same directory/home dir.
-(mentioning this twice because it is required!)
+# MODES:
 
-INSTRUCTIONS:
-chmod +x maccleaner
+ extra privacy/random mode (r) sets continually changing 
+ random addresses at continually changing random times,
+ 'r' setting most private: random continually changing times/hostnames/mac addresses
+ 'i' make device mimic single iPhone- changes hostname on wifi/network to match single randomly generated iPhone mac address
+ 'c' cellphone mode makes your device name/mac mimic very popular phone
+ 'a' mode sets single randomized mac for home/longterm use; resets to prevent leaks;
+  [ Should work on most if not all Linux systems ]
+
+concept/code by righttoprivacy@tutanota.com; also on Parrot Linux Forums @RightToPrivacy
+My Protect Your Privacy Youtube Channel: https://www.youtube.com/channel/UChVCEXzi39_YEpUQhqmEFrQ
+My Blog: https://politictech.wordpress.com
+ 
+# REQUIREMENTS:
+
+* Linux (Any) * Bash
+
+# INSTALLATION: 
+(requires root)
+
+1.) mkdir /usr/share/maccleaner
+2.) Move OUI.final & OUI.apple to /usr/share/maccleaner
+3.) chmod +x maccleaner
+
+# USE:
+
 ./maccleaner
 
-OR
+follow the prompts and choose your wifi device & mode
 
-follow instructions at bottom of this README for how to add command/simple 
+# OR
+
+follow instructions at bottom of this README to add command/simple 
 button for easy access.
 
-Why maccleaner?
+# Why maccleaner?
 
 MAC address tracking is one of the most pervasive/constant forms 
-of surveillance abuse out there. Passive sniffers are constantly 
-gobbling up our mac address broadcasts, tracking us as we pass 
-by them, along with access points. This occurs even if you just have
-wifi on. Even if you do not connect. This is a solution with an
-anonymous mode to change your mac at constantly changing randomized
-times/addresses. To "ghost" your hardware address & drop the trackers.
+of surveillance abuse out there. Passive sniffer trackers constantly 
+gobble up our mac address broadcasts, tracking us as we pass 
+by them, mapping us out along access points/beacons. 
 
-Even dept stores track your MAC, linking it to your identity/broadcast, as
-you bring your items to a cash register. MAC addresses are the permanent 
+***This occurs even if you do not connect.***
+
+Even dept stores track MACs, linking it to your identity, facial recognition
+scans, even your name/phone number if you give it to a store/cashier.. MAC addresses are the permanent 
 hardware address tied to your computer WIFI/Ethernet card etc. In fact,
 these are one of the biggest ties to your identity/movements. This small 
 bash script changes your wifi card to a random MAC address every few minutes at 
-random time intervals. 
+randomized continually changing time intervals to prevent patterna analysis. 
 
 Drones also collect MAC addresses to track identities, violating 
 UN Declaration of Human Rights: #12 is privacy. Privacy is a basic
 Human Right.
 
-Why change MAC at random time intervals? Because analysis depends on recognizing 
-patterns. If your MAC were to change exactly every 5 minutes one could 
-correlate the new MAC address detections every minutes to your identity. 
-So this script makes the mac address change at completely random times. 
-You can adjust the lowest -> highest time differences in the script variables.
+**Why change MAC at random changing time intervals?** Because analysis depends 
+on recognizing patterns. If your MAC were to change via cronttab exactly 
+every 5 minutes one could correlate the new MAC address detections every 
+minutes to your identity. 
 
-Using random intervals ensures you are not creating a pattern. All tracking
-is based on predicable patterns.
+This script offers options to make the mac address change at completely random 
+changing times. You can adjust the lowest -> highest time differences in script variables.
 
-Also solves a common issue in mac address changing where MAC address resets to permanent
+Solves common issue in mac address changing where MAC address resets to permanent
 (original/identity) MAC address upon disconnect from a network/wifi driver
 issues. By running this script you shorten the time between mac changes. I ran
-KISMET for 6 hours straight to test it. Not a single real MAC address leak. Also
+KISMET for 24hr straight to test it. Not a single real MAC address leak. Also
 adds many more mac addresses to the mix giving a sort of needle in a haystack 
 strategy & constantly moving address.
 
@@ -80,14 +104,13 @@ purposes)
 
 -=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-
-Add button for maccleaner/ghostmac at top of MATE desktop:
+# Add button for maccleaner/ghostmac at top of MATE desktop:
 
 Save the script to a file in text editor (or download from github).
 
 Open terminal.
 
-`chmod +x maccleaner`. 
+chmod +x maccleaner. 
 
 Move to command path directory:
 'mv scriptname /usr/bin' (this puts it in path for command execution)
@@ -106,7 +129,7 @@ Now just clicking the panel button will launch a terminal displaying status
 of MAC changes including seconds from last MAC change (in case
 you want a status window to keep an eye on MAC address history/timing.
 
-This script was created with ethical intentions to fight predatory MAC address tracking.
+***This script was created with ethical intentions***
 
 If you want to contact/have ideas/questions email: righttoprivacy@tutanota.com
 
