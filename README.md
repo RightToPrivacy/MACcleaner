@@ -17,12 +17,10 @@ and data/device tracking
 Your hostname is logged at every public/shared LAN/Network 
 you connect to; Stores/advertisers/hackers may collect it ]
 
-[ Ideal for Security/Privacy/Human Rights ]
+[ Ideal for Security/Privacy/Human Rights ] 
 
-In certain (local) MITM attacks the attacker may spoofs your 
-MAC address to appear to be you. This script may also help protect you 
-from by continually changing your MAC address at continually changing 
-times/addresses. 
+Security Idea: in some attacks an attacker may need to spoof your
+MAC address. This tool may help narrow down an attacker via analysis.
 
 MAC address tracking is the basis for much of device tracking.
 Think of your MAC address as the publicly broadcasting fingerprint to your 
@@ -34,7 +32,7 @@ This can further be correlated with other data leading to abuse.
 Access points store your MAC/hostname addresses.
 
 [ This is why I wrote maccleaner: predatory tracking by data/store trackers. Also
-places in the world where people are persecuted for journalism/human rights ]
+places where people are persecuted for human rights/journalism ]
 
 # MODES:
 
