@@ -3,28 +3,38 @@ righttoprivacy@tutanota.com. E-mail me with questions.*** (11.25.2019)
 
 # MACcleaner
 
+To enhance Security (helps prevent some MITM attacks) 
+and data/device tracking
+
 (GPL) original concept/code 11.25.2019
 
 ### README ###
 
+**For Ethical Purposes**
+
 ***UPDATE: Now including hostname randomization***
-[ hostnames can be equally unique; Your comp hostname is logged 
-at every LAN/Network you connect to ]
+[ hostnames can be equally unique to your device; 
+Your hostname is logged at every public/shared LAN/Network 
+you connect to; Stores/advertisers/hackers may collect it ]
 
-[ Ideal for Privacy/Human Rights ]
+[ Ideal for Security/Privacy/Human Rights ]
 
-MAC address tracking is the basis for modern non-GPS movement tracking.
+In certain (local) MITM attacks the attacker may spoofs your 
+MAC address to appear to be you. This script may also help protect you 
+from by continually changing your MAC address at continually changing 
+times/addresses. 
+
+MAC address tracking is the basis for much of device tracking.
 Think of your MAC address as the publicly broadcasting fingerprint to your 
 hardware device. It doesn't change & it broadcasts your location-- whether 
 you ever connect to a wifi network or not.
 
-This can further be correlated with facial recognition, 
-& even your name if you give it to a tracking dept store.
+This can further be correlated with other data leading to abuse.
 
-Drones map our movements by MAC address, even if 
-we never connect to wifi. Access points store your MAC/hostname addresses.
+Access points store your MAC/hostname addresses.
 
-[ This is why I wrote maccleaner: predatory address tracking by data agreggators/store trackers. ]
+[ This is why I wrote maccleaner: predatory tracking by data/store trackers. Also
+places in the world where people are persecuted for journalism/human rights ]
 
 # MODES:
 
@@ -66,42 +76,40 @@ button for easy access.
 
 MAC address tracking is one of the most pervasive/constant forms 
 of tracking abuse out there. Passive sniffer trackers constantly 
-gobble up our mac address broadcasts, tracking as we pass 
-by them, mapping us out along access points/beacons.  
+gobble up mac address broadcasts, tracking as we pass 
+by them, mapping out along access points/beacons.  
 
 ***This occurs even if you do not connect.***
 
-Even dept stores track MACs, linking it to your identity, facial recognition
+Even dept stores track MACs, linking device identity, facial recognition
 scans, even your name/phone number if you give it to a store/cashier.. 
 MAC addresses are the permanent hardware address tied to your computer 
 WiFi/Ethernet card etc. In fact, these are one of the biggest ties to your 
-identity/movements. This bash script changes your wifi card to a random 
+device. This script changes your wifi card to a random 
 MAC address every few minutes at randomized continually changing time 
 intervals to prevent patterns picked up by trackers. 
 
-Advertiser Drones also collect MAC addresses to track identities, violating 
+Advertisers are now using Drones to collect MAC addresses.
+
 UN Declaration of Human Rights: #12 is privacy. Privacy is a basic
 Human Right.
 
-**Why change MAC at random changing time intervals?** Because analysis depends 
-on recognizing patterns. If your MAC were to change via cronttab exactly 
-every 5 minutes one could correlate the new MAC address detections every 
-minutes to your identity. 
+**Why change MAC at random changing time intervals?** tracking depends 
+on recognizing patterns. If your MAC were to changed via cronttab exactly 
+every 5 minutes, a tracker could then correlate the new MAC address by 
+picking up the static patterns in changes.
 
-This script offers options to make the mac address change at completely random 
+Offers options to make mac address change at completely random 
 changing times. You can adjust the lowest -> highest time differences in script variables.
 
 Solves common issue in mac address changing where MAC address resets to permanent
 (original/identity) MAC address upon disconnect from a network/wifi driver
-issues. By running this script you shorten the time between mac changes. I ran
+issues. By running this script you shorten the time between mac changes. Ran
 KISMET for 24hr straight to test it. Not a single real MAC address leak. Also
 adds many more mac addresses to the mix giving a sort of needle in a haystack 
 strategy & constantly moving address.
 
-Works great alongside Parrot OS's AnonSurf/Tor to route traffic, but nothing outside 
-this script is required for it to work (outside bash). This script (maccleaner)
-changes your device address & KISMET functions well while using it (for ethical
-purposes)
+(I added r function in this script to my fork of Parrot Linux Anonsurf)
 
 -=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -130,7 +138,7 @@ Now just clicking the panel button will launch a terminal displaying status
 of MAC changes including seconds from last MAC change (in case
 you want a status window to keep an eye on MAC address history/timing.
 
-***This script was created with ethical intentions***
+***This script was created with ethical human rights/security intentions*** 
 
 If you want to contact/have ideas/questions email: righttoprivacy@tutanota.com
 
