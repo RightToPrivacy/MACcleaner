@@ -24,7 +24,7 @@ This can further be correlated with facial recognition,
 Drones map our movements by MAC address, even if 
 we never connect to wifi. Access points store your MAC/hostname addresses.
 
-[ This is why I wrote maccleaner: predatory address tracking. ]
+[ This is why I wrote maccleaner: predatory address tracking by data agreggators/store trackers. ]
 
 # MODES:
 
@@ -65,20 +65,21 @@ button for easy access.
 # Why maccleaner?
 
 MAC address tracking is one of the most pervasive/constant forms 
-of surveillance abuse out there. Passive sniffer trackers constantly 
-gobble up our mac address broadcasts, tracking us as we pass 
-by them, mapping us out along access points/beacons. 
+of tracking abuse out there. Passive sniffer trackers constantly 
+gobble up our mac address broadcasts, tracking as we pass 
+by them, mapping us out along access points/beacons.  
 
 ***This occurs even if you do not connect.***
 
 Even dept stores track MACs, linking it to your identity, facial recognition
-scans, even your name/phone number if you give it to a store/cashier.. MAC addresses are the permanent 
-hardware address tied to your computer WIFI/Ethernet card etc. In fact,
-these are one of the biggest ties to your identity/movements. This small 
-bash script changes your wifi card to a random MAC address every few minutes at 
-randomized continually changing time intervals to prevent patterna analysis. 
+scans, even your name/phone number if you give it to a store/cashier.. 
+MAC addresses are the permanent hardware address tied to your computer 
+WiFi/Ethernet card etc. In fact, these are one of the biggest ties to your 
+identity/movements. This bash script changes your wifi card to a random 
+MAC address every few minutes at randomized continually changing time 
+intervals to prevent patterns picked up by trackers. 
 
-Drones also collect MAC addresses to track identities, violating 
+Advertiser Drones also collect MAC addresses to track identities, violating 
 UN Declaration of Human Rights: #12 is privacy. Privacy is a basic
 Human Right.
 
