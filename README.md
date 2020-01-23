@@ -1,5 +1,5 @@
-***If you use/edit/redistribute my concept/code make sure to credit:
-righttoprivacy@tutanota.com. E-mail me with questions.*** (11.25.2019)
+***If you use/edit/redistribute my concept/code credit:
+righttoprivacy@tutanota.com. Thank you. E-mail me for questions.*** 
 
 # MACcleaner
 
