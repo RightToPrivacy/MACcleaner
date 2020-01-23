@@ -102,7 +102,7 @@ hostnrand () {
 
 x_cookie () {
 	cookie="$(xauth list | awk '{print $NF}' | tail -n 1)"
-	rm -rf ~/.Xauthority;touch ~/.Xauthority
+	rm -rf ~/.Xauthority;touch ~/.Xauthority;chown $USER ~/.Xauthority
 	xauth add "${array[$hostnames]}/unix:0" MIT-MAGIC-COOKIE-1 $cookie
 }
 
