@@ -98,6 +98,10 @@ hostnrand () {
 	array[5]="PC" 
 	array[6]="Toshiba"
 	hostnames=$[ $RANDOM % 7 ]
+	hostnamectl set-hostname ${array[$hostnames]}
+	/bin/echo -e "$BLUE Your computer hostname (logged by router/network) is now \e[1;31m${array[$hostnames]}\e[0m"
+	cookie="$(xauth list | awk '{print $NF}' | tail -n 1)"
+	xauth add "${array[$hostnames]}/unix:0" MIT-MAGIC-COOKIE-1 $cookie
 }
 
 phonemacrand () {	
