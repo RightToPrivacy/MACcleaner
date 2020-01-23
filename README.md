@@ -38,10 +38,15 @@ places where people are persecuted for human rights/journalism ]
 
  extra privacy/random mode (r) sets continually changing 
  random addresses at continually changing random times,
+ 
  'r' setting most private: random continually changing times/hostnames/mac addresses
+ 
  'i' make device mimic single iPhone- changes hostname on wifi/network to match single randomly generated iPhone mac address
+ 
  'c' cellphone mode makes your device name/mac mimic very popular phone
+ 
  'a' mode sets single randomized mac for home/longterm use; resets to prevent leaks;
+ 
   [ Should work on most if not all Linux systems ]
 
 concept/code by righttoprivacy@tutanota.com; also on Parrot Linux Forums @RightToPrivacy
@@ -56,12 +61,20 @@ My Blog: https://politictech.wordpress.com
 (requires root)
 
 1.) mkdir /usr/share/maccleaner
-2.) Move OUI.final & OUI.apple to /usr/share/maccleaner
-3.) chmod +x maccleaner
+
+2.) Move OUI.final & OUI.apple files to /usr/share/maccleaner (required files for valid random MAC generation)
+
+3.) chmod +x maccleaner.sh
+
+4.) to install as a command move maccleaner.sh to /usr/bin/maccleaner (optional step for easy command access)
 
 # USE:
 
 ./maccleaner
+
+Or
+
+maccleaner (if you moved to /usr/bin or other executable path)
 
 follow the prompts and choose your wifi device & mode
 
@@ -73,8 +86,11 @@ button for easy access.
 # Why maccleaner?
 
 MAC address tracking is one of the most pervasive/constant forms 
-of tracking abuse out there. Passive sniffer trackers constantly 
+
+of tracking abuse out there. Passive sniffer trackers constantly
+
 gobble up mac address broadcasts, tracking as we pass 
+
 by them, mapping out along access points/beacons.  
 
 ***This occurs even if you do not connect.***
