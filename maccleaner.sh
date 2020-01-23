@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# (GPL) Original concept/code finish (11.25.2019)
+# (GPL) Original concept/code (11.25.2019)
 #
 #
-# [ If you redistribute parts and/or concept/code in any form fork & leave credits:
+# [ If you redistribute parts and/or concept/code in any form/fork leave credits:
 # by <RightToPrivacy@tutanota.com> https://github.com/RightToPrivacy/MACcleaner ]
 #
 # For ethical Privacy/Human Rights
 #
 # UPDATE: Now includes randomized hostname changes:
-# Why? because your hostname is logged on router making new datapoints
+# Why? because your hostname is logged on router/public wifi making new identifiable datapoints
 #
 # *** Read README for setup ***
 #
@@ -28,8 +28,8 @@ lowtime=500    	# lowest number (lower the number, lower potential time changed)
 reset_time=600 	# time beteen ensuring mac address is set right- if ur card resets a lot set lower
 r_mode_dev="Desktop"		
 c_mode_dev="Apple"			# phone device mimic 'c' mode: mac addresses set to match brand
-OUIapple='/usr/share/maccleaner/OUI.apple'
-OUIfinal='/usr/share/maccleaner/OUI.final'
+OUIapple='/usr/share/maccleaner/OUI.apple'		# location you place OUI.apple file	(needed for valid MAC)
+OUIfinal='/usr/share/maccleaner/OUI.final'		# location you place OUI.final file (needed for valid MAC)
 
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 /bin/echo -e "|\e[1;31mmaccleaner:\e[0m \e[1;37m mac anonymization time/address host randomizer\e[0m|"
@@ -98,9 +98,11 @@ hostnrand () {
 	array[5]="PC" 
 	array[6]="Toshiba"
 	hostnames=$[ $RANDOM % 7 ]
-	hostnamectl set-hostname ${array[$hostnames]}
-	/bin/echo -e "$BLUE Your computer hostname (logged by router/network) is now \e[1;31m${array[$hostnames]}\e[0m"
+}
+
+x_cookie () {
 	cookie="$(xauth list | awk '{print $NF}' | tail -n 1)"
+	rm -rf ~/.Xauthority;touch ~/.Xauthority
 	xauth add "${array[$hostnames]}/unix:0" MIT-MAGIC-COOKIE-1 $cookie
 }
 
@@ -119,30 +121,32 @@ echo ""
 
 # r mode continually changes mac address/hostnames at continually changing time intervals
 if [ "$setting" == "r" ];then	
-		while :
-		do
-			# generic hostname continual randomization
-			hostnrand
-			hostnamectl set-hostname ${array[$hostnames]}
-			/bin/echo -e "Your computer name is now \e[1;31m${array[$hostnames]}\e[0m (logged on WiFi/LAN networks)"			
-			# MAC address times/address randomization
-			macrand
-			/bin/echo -e "\e[1;37mghosting MAC/device name\e[0m: random times at random addresses '(MAC address in privacy mode)'"
-			/bin/echo -e "Changing MAC to: \e[1;31m$mac\e[0m"
-			ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
-			sleep 1
-			# Time
-			rando=$((RANDOM%$hightime+$lowtime))
-			echo ""
-			echo 'next change: random times, random addresses in:' $rando'sec'
-			sleep $rando
-		done
+	while :
+	do
+		# generic hostname continual randomization
+		hostnrand
+		hostnamectl set-hostname ${array[$hostnames]}
+		x_cookie
+		/bin/echo -e "Your computer name is now \e[1;31m${array[$hostnames]}\e[0m (logged on WiFi/LAN networks)"	
+		# MAC address times/address randomization
+		macrand
+		/bin/echo -e "\e[1;37mghosting MAC/device name\e[0m: random times at random addresses '(MAC address in privacy mode)'"
+		/bin/echo -e "Changing MAC to: \e[1;31m$mac\e[0m"
+		ip link set dev $device down;ip link set dev $device address $mac;ip link set dev $device up;
+		sleep 1
+		# Time
+		rando=$((RANDOM%$hightime+$lowtime))
+		echo ""
+		echo 'next change: random times, random addresses in:' $rando'sec'
+		sleep $rando
+	done
 fi
 
 # i mode selects a single Apple mac address/hostname
 if [ "$setting" == "i" ];then
 	# hostname setting
 	hostnamectl set-hostname $c_mode_dev
+	x_cookie
 	/bin/echo -e "Your computer's name is now \e[1;31m$c_mode_dev\e[0m on WiFi networks"
 	# MAC randomization
 	phonemacrand
@@ -159,6 +163,7 @@ fi
 # c mode sets generic Apple hostname & sets continually changing brand match mac addresses chosen at random
 if [ "$setting" == "c" ];then
 	hostnamectl set-hostname $c_mode_dev
+	x_cookie
 	/bin/echo -e "Your computer name is now \e[1;31m$c_mode_dev\e[0m on WiFi networks"
 		while :
 		do
@@ -180,6 +185,7 @@ fi
 if [ "$setting" == "s" ];then
 	hostnrand
 	hostnamectl set-hostname ${array[$hostnames]}
+	x_cookie
 	/bin/echo -e "Your new computer hostname (logged by WiFi/LAN router) is now \e[1;31m${array[$hostnames]}\e[0m"
 	echo "ensuring same MAC address (preventing leaks) in: $reset_time sec"
 		# MAC setting of your choice
@@ -196,6 +202,7 @@ fi
 if [ "$setting" == "a" ];then
 	hostnrand
 	hostnamectl set-hostname ${array[$hostnames]}
+	x_cookie
 	/bin/echo -e "Your new computer hostname (logged by WiFi/LAN router) is now \e[1;31m$r_mode_dev\e[0m"
 	macrand
 	/bin/echo -e "Changing MAC to stay as: \e[1;31m$mac\e[0m"
