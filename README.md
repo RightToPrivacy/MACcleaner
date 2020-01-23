@@ -3,7 +3,7 @@ righttoprivacy@tutanota.com. E-mail me with questions.*** (11.25.2019)
 
 # MACcleaner
 
-To enhance Security (helps prevent some MITM attacks) 
+To enhance Security 
 and data/device tracking
 
 (GPL) original concept/code 11.25.2019
