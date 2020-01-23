@@ -29,7 +29,7 @@ you ever connect to a wifi network or not.
 
 This can further be correlated with other data leading to abuse.
 
-Access points store your MAC/hostname addresses.
+Access points you connect to store your MAC/hostname addresses.
 
 [ This is why I wrote maccleaner: predatory tracking by data/store trackers. Also
 places where people are persecuted for human rights/journalism ]
@@ -74,9 +74,9 @@ My Blog: https://politictech.wordpress.com
 
 Or
 
-maccleaner (if you moved to /usr/bin or other executable path)
+command: maccleaner (if you moved to /usr/bin or other executable path. Step #4)
 
-follow the prompts and choose your wifi device & mode
+follow prompts and choose your wifi device name & mode
 
 # OR
 
@@ -86,11 +86,8 @@ button for easy access.
 # Why maccleaner?
 
 MAC address tracking is one of the most pervasive/constant forms 
-
 of tracking abuse out there. Passive sniffer trackers constantly
-
 gobble up mac address broadcasts, tracking as we pass 
-
 by them, mapping out along access points/beacons.  
 
 ***This occurs even if you do not connect.***
@@ -127,7 +124,7 @@ strategy & constantly moving address.
 
 -=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-# Add button for maccleaner/ghostmac at top of MATE desktop:
+# Add button for maccleaner at top of MATE desktop:
 
 Save the script to a file in text editor (or download from github).
 
@@ -144,9 +141,8 @@ Then "Create Application launcher".
 
 Select Application and change it to "Application in terminal." 
 
-Command for the launcher: "sudo maccleaner" (or ghostmac, whatever
-you name it; also make sure you change from "Application" to 
-"Application in Terminal")
+Command for the launcher: "sudo maccleaner" (also make sure you change from 
+"Application" to "Application in Terminal")
 
 Now just clicking the panel button will launch a terminal displaying status
 of MAC changes including seconds from last MAC change (in case
