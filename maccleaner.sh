@@ -2,6 +2,8 @@
 #
 # (GPL) Original concept/code (11.25.2019)
 #
+# ***Run this version maccleaner with 'sudo' NOT logged in as root***
+# ------------------------------------------------------------------
 #
 # [ If you redistribute parts and/or concept/code in any form/fork leave credits:
 # by <RightToPrivacy@tutanota.com> https://github.com/RightToPrivacy/MACcleaner ]
