@@ -102,12 +102,6 @@ hostnrand () {
 	hostnames=$[ $RANDOM % 7 ]
 }
 
-x_cookie () {
-	cookie="$(xauth list | awk '{print $NF}' | tail -n 1)"
-	rm -rf ~/.Xauthority;touch ~/.Xauthority;chown $USER ~/.Xauthority
-	xauth add "${array[$hostnames]}/unix:0" MIT-MAGIC-COOKIE-1 $cookie
-}
-
 phonemacrand () {	
 	hexchar="ABCDEF0123456789"
 	beg=$(shuf -n 1 $OUIapple)		
@@ -127,8 +121,7 @@ if [ "$setting" == "r" ];then
 	do
 		# generic hostname continual randomization
 		hostnrand
-		hostnamectl set-hostname ${array[$hostnames]}
-		x_cookie
+		hostname ${array[$hostnames]}'-'$RANDOM
 		/bin/echo -e "Your computer name is now \e[1;31m${array[$hostnames]}\e[0m (logged on WiFi/LAN networks)"	
 		# MAC address times/address randomization
 		macrand
@@ -147,8 +140,7 @@ fi
 # i mode selects a single Apple mac address/hostname
 if [ "$setting" == "i" ];then
 	# hostname setting
-	hostnamectl set-hostname $c_mode_dev
-	x_cookie
+	hostname $c_mode_dev
 	/bin/echo -e "Your computer's name is now \e[1;31m$c_mode_dev\e[0m on WiFi networks"
 	# MAC randomization
 	phonemacrand
@@ -164,8 +156,7 @@ fi
 
 # c mode sets generic Apple hostname & sets continually changing brand match mac addresses chosen at random
 if [ "$setting" == "c" ];then
-	hostnamectl set-hostname $c_mode_dev
-	x_cookie
+	hostname $c_mode_dev
 	/bin/echo -e "Your computer name is now \e[1;31m$c_mode_dev\e[0m on WiFi networks"
 		while :
 		do
@@ -186,8 +177,7 @@ fi
 # s mode sets a single generic hostname selected at random
 if [ "$setting" == "s" ];then
 	hostnrand
-	hostnamectl set-hostname ${array[$hostnames]}
-	x_cookie
+	hostname ${array[$hostnames]}'-'$RANDOM
 	/bin/echo -e "Your new computer hostname (logged by WiFi/LAN router) is now \e[1;31m${array[$hostnames]}\e[0m"
 	echo "ensuring same MAC address (preventing leaks) in: $reset_time sec"
 		# MAC setting of your choice
@@ -203,8 +193,7 @@ fi
 # a mode sets a single hostname/mac address chosen at random
 if [ "$setting" == "a" ];then
 	hostnrand
-	hostnamectl set-hostname ${array[$hostnames]}
-	x_cookie
+	hostname ${array[$hostnames]}'-'$RANDOM
 	/bin/echo -e "Your new computer hostname (logged by WiFi/LAN router) is now \e[1;31m$r_mode_dev\e[0m"
 	macrand
 	/bin/echo -e "Changing MAC to stay as: \e[1;31m$mac\e[0m"
