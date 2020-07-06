@@ -1,5 +1,14 @@
-***If you use/edit/redistribute my concept/code credit:
-righttoprivacy@tutanota.com. Thank you. E-mail me for questions.*** 
+### NOTE: After making maccleaner I decided I wanted another form: one
+### I can issue as single command with flags (to integrate more easily
+### into other scripts I wanted to automate and optional systemd). If you want to check this 
+### out it is at: https://github.com/righttoprivacy/wipri
+### More on WiPri: Also added new features to this one. The new version/name's 
+### flag options include: singular static random MAC identity change (hold same MAC),
+### tx signal strength randomizer (experimental/optional flag to mess with dev/wifi tracking
+### beacons, randomization hostname
+
+***Feel free to use/distribute/modify. 
+I appreciate credits: righttoprivacy@tutanota.com. Thank you.*** 
 
 # MACcleaner
 
